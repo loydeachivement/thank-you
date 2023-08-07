@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <title>Offre de partenariat Comptabilité Paie</title>
+
+    <style type="text/css">
+      .container{
+        margin-top: 15px;
+        background-color: orange;
+      }
+
+      img{
+        margin-top: 10px;
+        width: auto;
+        height: 70px;
+      }
+
+      button{
+        margin-bottom: 10px;
+      }
+
+
+    
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <center><img src="https://i.ibb.co/cYKcr5f/logo.jpg"></center>
+      <div class="row">
+        <div class="col align-self-center">
+          <h3 class="text-center">Offre de partenariat Comptabilité Paie</h3>
+          <!-- contact form -->
+          <form id="myForm">
+            <!-- name -->
+            <div class="form-group">
+              <label for="denominationsociale">Dénomination sociale</label>
+              <input
+                type="text"
+                name="denominationsociale"
+                class="form-control"
+                id="denominationsociale"
+                placeholder="nom de votre entreprise"
+              />
+            </div>
+
+            <!-- email -->
+            <div class="form-group">
+              <label for="anneecreation">Année de création</label>
+              <input
+                type="text"
+                name="anneecreation"
+                class="form-control"
+                id="anneecreation"
+                placeholder="année de création de votre entreprise"
+              />
+            </div>
+
+
+               <!-- email -->
+            <div class="form-group">
+              <label for="FormeJuridique">Forme juridique</label>
+              <input
+                type="text"
+                name="FormeJuridique"
+                class="form-control"
+                id="FormeJuridique"
+                placeholder="SARL..."
+              />
+            </div>
+
+
+               <!-- email -->
+            <div class="form-group">
+              <label for="nombresalaries">Nombre de salariés</label>
+              <input
+                type="text"
+                name="nombresalaries"
+                class="form-control"
+                id="nombresalaries"
+                placeholder="nombre de salariés de l'entreprise"
+              />
+            </div>
+
+
+            <center><button type="submit" class="btn btn-primary">Submit</button></center>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- bootstrap js -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+    <script type="text/javascript">      (function () {
+        emailjs.init("vMakpZsdeOl-IvqJ-");
+      })();
+    </script>
+
+
+    <script>
+      const redir = "https://objectifservices.netlify.app";
+      // listen to the form submission
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const serviceID = "service_6u6w96t";
+          const templateID = "template_3sam6pm";
+
+          // send the email here
+          emailjs.sendForm(serviceID, templateID, this).then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text, redir);
+              window.open("https://www.w3schools.com");
+            },
+            (error) => {
+              console.log("FAILED...", error);
+              alert("FAILED...", error);
+            }
+          );
+        });
+    </script>
+
+
+</body>
+</html>
